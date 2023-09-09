@@ -1,0 +1,409 @@
+
+:root {
+    --color-jet-black: #000401;
+    --color-gunpowder: #4E545C;
+    --color-pewter: #8D9797;
+    --color-white: #e5e8e8;
+    --color-test: rgb(62, 62, 62);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family:  'Poppins', sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/media/bg/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    backdrop-filter: blur(70px);
+
+    /* background: rgb(78,84,92);
+    background: linear-gradient(180deg, rgba(78,84,92,0.8) 0%, rgba(61,65,71,1) 100%); */
+}
+
+nav {
+    display: flex;
+    background-color: var(--color-jet-black);
+    color: var(--color-pewter);
+    height: 45px;
+    box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.3);
+}
+
+#gallery-logo {
+    margin-bottom: 2rem;
+    font-size: 30px;
+    font-family:  'MuseoModerno', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-white)
+}
+
+nav h1 {
+    margin: auto 1rem;
+    font-size: 25px;
+    font-family:  'MuseoModerno', sans-serif;
+    font-weight: 100;
+}
+
+nav .nav-info {
+    display: flex;
+    padding: 4px 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    gap: 20px;
+    min-width: 100px;
+    margin: auto 10px auto 20px;
+}
+
+nav .nav-info h4 {
+    font-size: 9px;
+}
+
+nav .nav-info p {
+    font-size: 12px;
+    margin-top: 2px;
+    color: var(--color-white);
+}
+
+nav .grid_chooser {
+    display: flex;
+    margin: auto 0 auto auto;
+    gap: 0.4rem;
+    background-color: var(--color-jet-black);
+}
+
+nav .grid_chooser span {
+    font-size: 30px;
+}
+
+nav .grid_chooser .full {
+    font-size: 12px;
+    padding: 0 10px;
+    width: fit-content;
+}
+
+nav .grid_chooser button {
+    background-color: var(--color-jet-black);
+    border-color: var(--color-gunpowder);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    height: 30px;
+    width: 40px;
+    color: var(--color-pewter);
+    font-size: 12px;
+    transition: background-color 0.3s;
+    
+}
+
+nav .grid_chooser .active {
+    background-color: rgb(255, 255, 255, 0.15);
+}
+
+nav .grid_chooser button:hover {
+    background-color: rgb(255, 255, 255, 0.1);
+}
+
+main {
+    width: 100vw;
+    height: calc(100vh - 45px);
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+main .gallery-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 0.5rem;
+}
+
+main .gallery-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 0.5rem;
+}
+
+main .gallery-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 0.5rem;
+}
+
+main .gallery-grid-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin: 0.5rem;
+}
+
+main .image-box {
+    position: relative;
+    background-color: rgb(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+main .image-box img {
+    width: 100%;
+    display: block;
+}
+
+main .image-box .image-info {
+    position: absolute;
+    display: flex;
+    top: 2px;
+    left: 2px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.879);
+    width: 16px;
+    height: 16px;
+}
+
+main .image-box .image-info p {
+    color: var(--color-white);
+    font-size: 11px;
+    margin: auto;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+
+/* POP UP */
+.modal {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    transition: ease-in-out 0.4s;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 5;
+    }
+
+.modal .content {
+    position: relative;
+    width: 65%;
+    padding: 0.1rem 0.1rem;
+    box-shadow: 0px 0px 180px rgba(255, 255, 255, 0.162);
+    }
+
+.modal .content img {
+    width: 100%;
+    }
+
+.modal:target {
+    visibility: visible;
+    opacity: 1;
+    }
+
+.modal .box-close {
+    position: absolute;
+    top: -25px;
+    right: -20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    }
+
+.modal .arrow {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.578);
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: all 0.3s;
+}
+
+.modal .arrow:hover {
+    color: rgba(255, 255, 255, 0.878);
+}
+
+.modal .arrow > span {
+    font-size: 40px;
+}
+
+.modal #right-arrow {
+    right: -50px;
+}
+
+.modal #left-arrow {
+    left: -50px;
+}
+
+.modal .content form {
+    display: flex;
+    width: 100%;
+}
+
+.modal .content .heart_btn{
+    color: var(--color-pewter);
+    margin: auto 20px;
+    background-color: rgba(0, 0, 0, 0);
+    transition: all 0.3s;
+}
+
+.modal .content .heart_btn span {
+    color: var(--color-pewter);
+    display: block;
+    transition: all 0.3s;
+}
+
+.modal .content .heart_btn span:hover {
+    color: rgb(178, 63, 63);
+    display: block;
+}
+
+.modal .content #heart_checkbox:checked + .heart_btn span {
+    color: rgb(178, 63, 63);
+    display: block;
+}
+
+.modal .content form textarea {
+    padding: 3px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 12px;
+    color: var(--color-white);
+}
+
+.modal .content form .save_btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 10px;
+    color: var(--color-white);
+    font-size: 10px;
+    transition: background-color 0.3s;
+}
+
+.modal .content form .save_btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: background-color 0.3s;
+}
+
+.modal .content form {
+    display: flex;
+    width: 100%;
+}
+
+.image-box .image-info form textarea {
+    padding: 3px;
+    width: 100%;
+    background-color: var(--color-gunpowder);
+    font-size: 12px;
+    color: var(--color-white);
+}
+
+.image-box .image-info form button {
+    background-color: rgba(255, 255, 255, 0.0);
+    padding: 8px 10px;
+    color: var(--color-white);
+    font-size: 10px;
+    transition: background-color 0.3s;
+}
+
+.image-box .image-info form button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s;
+}
+
+/* LOGIN */
+
+#login {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+#login .login-box {
+    height: fit-content;
+    width: fit-content;
+    margin: 15% auto 0 auto;
+    padding: 5px 30px 20px 30px;
+    background-color: rgba(0, 0, 0, 0.545);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+#login .login-box:hover {
+    background-color: rgba(0, 0, 0, 0.645);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+#login h3 { 
+    font-family:  'MuseoModerno', sans-serif;
+    margin: 5px 0 10px 0;
+    font-size: 20px;
+    color: var(--color-pewter);
+    text-align: center;
+}
+
+#login form {
+    display: flex;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: var(--color-pewter);
+    overflow: hidden;
+
+}
+
+#login form .pin-code-field{
+    font-size: 25px;
+    width: 8rem;
+    padding: 5px 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.124);
+    color: var(--color-pewter);
+    transition: all 0.3s;
+    font-weight: 100;
+
+}
+
+#login form .pin-code-field:hover{
+    background-color: rgba(255, 255, 255, 0.184);
+    transition: all 0.3s;
+}
+ 
+#login form button {
+    width: 100%;
+    padding: 5px 30px;
+    background-color: rgb(255, 255, 255, 0.7);
+    transition: all 0.3s;
+}
+
+#login form button span {
+    font-size: 19px;
+}
+
+#login form button:hover {
+    background-color: rgb(255, 255, 255, 0.9);
+    transition: all 0.3s;
+}
+
+#copyright {
+    position: absolute;
+    bottom: 3px;
+    right: 10px;
+    font-size: 13px;
+    color: var(--color-jet-black);
+}

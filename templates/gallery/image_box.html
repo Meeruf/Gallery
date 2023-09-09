@@ -1,0 +1,25 @@
+{% load shuffle_images %}
+
+<div id="img-{{image.album_image_id}}" class="modal">
+    <div class="content">
+        <img src="{{ image.image.url }}">
+        <form>
+            <textarea placeholder="KOMMENTAR"></textarea>
+            <input id="heart_checkbox" type="checkbox" hidden></input>
+            <label for="heart_checkbox" class="heart_btn"><span class="material-icons-sharp"> favorite  </span></label>
+            <button class="save_btn">LAGRE</button>
+        </form>
+        <a href="#" class="box-close"> × </a>
+        <a class="arrow" id="right-arrow" href="{{ image.album_image_id|next_img:len_img }}"><span class="material-icons-sharp"> keyboard_double_arrow_right </span></a>
+        <a class="arrow" id="left-arrow" href="{{ image.album_image_id|previous_img:len_img }}"><span class="material-icons-sharp"> keyboard_double_arrow_left </span></a>
+    </div>
+</div>
+
+
+
+<div class="image-box">
+    <a href="#img-{{image.album_image_id}}"><img src="{{ image.image.url }}"></a>
+    <div class="image-info">
+        <p>{{image.album_image_id}}</p>
+    </div>
+</div>

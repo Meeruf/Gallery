@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load shuffle_images %}
+{% load static %}
+
+{% block content %}
+
+<nav>
+    <h1>G a l l e r i</h1>
+    <div class="grid_chooser">
+        <span class="material-icons-sharp"> grid_view </span>
+        <button class="full">FULL</button>
+        <script src="{% static 'js/fullscreen.js' %}"></script>
+        <form method="POST">
+            {% csrf_token %}
+            <button class="grid {{ grid_setting|active_grid:'2' }}" name="grid-2">2</button>
+            <button class="grid {{ grid_setting|active_grid:'3' }}" name="grid-3">3</button>
+            <button class="grid {{ grid_setting|active_grid:'4' }}" name="grid-4">4</button>
+            <button class="grid {{ grid_setting|active_grid:'5' }}" name="grid-5">5</button>
+        </form>
+    </div>
+    <div class="nav-info">
+        <div>
+            <h4>KUNDE</h4>
+            <p>SwedNorthAid</p>
+        </div>
+        <div>
+            <h4>ALBUM</h4>
+            <p>{{ album.title }}</p>
+        </div>
+        <div>
+            <h4>BILDER</h4>
+            <p>{{ len_img }}</p>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <div class="gallery-grid-{{ grid_setting }}">
+        {% for image in images %}
+        {% include 'gallery/image_box.html' %}
+        {% endfor %}
+    </div>
+
+</main>
+
+
+{% endblock %}

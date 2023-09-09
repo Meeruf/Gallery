@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="login-window">
+    <div class="dashboard-login">
+        <h1 id="gallery-logo">G a l l e r i</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="stupid-box">
+                <span class="material-icons-sharp"> person </span>
+                <input class="text-input" type="text" placeholder="Brukernavn"><br>
+            </div>
+            <div class="stupid-box">
+                <span class="material-icons-sharp"> lock </span>
+                <input class="text-input" type="password" placeholder="Pinkode" name="pincode"><br>
+            </div>
+            <input class="btn" type="submit" value="LOGG INN"><br>
+        </form>
+
+
+    </div>
+</div>
+
+{% endblock %}

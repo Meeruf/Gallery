@@ -1,0 +1,78 @@
+/* LOGIN */
+
+
+:root {
+    --color-jet-black: #000401;
+    --color-gunpowder: #4E545C;
+    --color-pewter: #8D9797;
+    --color-white: #e5e8e8;
+    --color-test: rgb(62, 62, 62);
+}
+
+.login-window {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.dashboard-login {
+    margin: 10% auto 0 auto;
+}
+
+
+.dashboard-login form .stupid-box {
+    display: flex;
+    margin: 5px 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.dashboard-login form .stupid-box > span {
+    color: var(--color-pewter);
+    margin: auto 12px;
+}
+
+.dashboard-login form .text-input {
+    padding: 15px;
+    font-size: 15px;
+    width: 15rem;
+    background-color: rgba(0, 0, 0, 0.463);
+    color: var(--color-pewter);
+    transition: ease-in-out 0.3s;
+}
+
+.dashboard-login form .text-input:hover {
+    background-color: rgba(0, 0, 0, 0.563);
+    transition: ease-in-out 0.3s;
+}
+
+.dashboard-login form .btn {
+    width: 100%;
+    padding: 13px;
+    margin: 10px auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: ease-in-out 0.3s;
+    color: var(--color-pewter);
+}
+
+.dashboard-login form .btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: ease-in-out 0.3s;
+
+}
+
+.dashboard-login form .login-options {
+    display: flex;
+    padding: 0 5px;
+}
+
+.dashboard-login form .login-options .remember-me-txt {
+    color: var(--color-pewter);
+    font-size: 11px;
+    margin: auto 5px auto 5px
+}
+
+.dashboard-login form .login-options .forgot-password {
+    color: var(--color-pewter);
+    font-size: 11px;
+    margin: auto 0 auto auto
+}
